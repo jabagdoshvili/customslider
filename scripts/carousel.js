@@ -50,8 +50,10 @@ function setActive() {
   iconIndex++
   let ind = Math.abs(iconIndex % length)
 
-  if(ind == 3) {
+  if(ind == length-1) {
     $(`.icon:eq(0)`).addClass('loading')
+    $(`.icon:eq(${length-1})`).addClass('active')
+    $(`.item[data-index="${length-1}"]`).addClass('active fade-in-up').siblings().removeClass('active')
     return
   }
   
