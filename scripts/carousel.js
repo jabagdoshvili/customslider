@@ -52,11 +52,12 @@ function setActive() {
 
   if(ind == length-1) {
     $(`.icon:eq(0)`).addClass('loading')
-    $(`.icon:eq(${length-1})`).addClass('active')
-    $(`.item[data-index="${length-1}"]`).addClass('active fade-in-up').siblings().removeClass('active')
+    $(`.icon:eq(${ind})`).addClass('active')
+    $(`.item[data-index="${ind}"]`).addClass('active fade-in-up').siblings().removeClass('active')
     return
   }
-  
+  $("animate")[0].beginElement();
+
   $(".carousel-image").find(`img[index='${ind}']`).fadeIn().siblings().hide()
   $(`.icon:eq(${ind})`).addClass('active').next().addClass('loading')
   $(`.item[data-index="${ind}"]`).addClass('active fade-in-up').siblings().removeClass('active')
